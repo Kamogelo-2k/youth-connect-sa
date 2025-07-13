@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science Bursaries – YouthConnect SA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 0.5rem 0 0.5rem 0;
+      padding: 4px 10px;
+      font-size: 0.95rem;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      top: 0;
+    }
+    .back-btn:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .card {
+      background: white;
+      margin-bottom: 1.5rem;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 8px;
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    th, td {
+      padding: 4px;
+      text-align: left;
+    }
+
+    tr:nth-child(even) {
+      background: #f0f0f0;
+    }
+
+    .site-footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-top: 2rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+      border-top: 2px solid #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YouthConnect SA</div>
+  </header>
+  <div style="width:100%;display:flex;justify-content:flex-start;">
+    <!-- Back button removed -->
+  </div>
+
+  <div class="container" id="bursaryList">
+    <h1 style="text-align:center; margin-bottom:2rem; color:#0066cc; font-size:2.2rem; font-weight:700;">Science Bursaries 2026</h1>
+
+    <div class="card">
+      <h2>National Research Foundation (NRF) Bursaries</h2>
+      <p><strong>Deadlines:</strong> Honours: 30 June | Masters: 31 August | PhD: 31 August</p>
+      <p><strong>Funding:</strong> R70k–R180k p.a.</p>
+      <p><strong>Fields:</strong> All scientific disciplines</p>
+      <p><strong>Requirements:</strong> SA citizenship, 65%+ average</p>
+      <a href="https://www.nrf.ac.za" target="_blank">Apply at NRF website</a>
+    </div>
+
+    <div class="card">
+      <h2>Department of Science & Innovation (DSI) Bursaries</h2>
+      <p><strong>Deadline:</strong> 30 September</p>
+      <p><strong>Funding:</strong> Full tuition + R120k stipend</p>
+      <p><strong>Focus Areas:</strong> Biotechnology, Astronomy, Climate change research</p>
+      <a href="https://www.dst.gov.za" target="_blank">Apply at DSI website</a>
+    </div>
+
+    <div class="card">
+      <h2>CSIR (Council for Scientific & Industrial Research) Bursaries</h2>
+      <p><strong>Deadline:</strong> 31 July</p>
+      <p><strong>Funding:</strong> R120k p.a. + internship</p>
+      <p><strong>Fields:</strong> Data science, Materials science, Renewable energy</p>
+      <a href="https://www.csir.co.za/careers" target="_blank">Apply at CSIR careers</a>
+    </div>
+
+    <div class="card">
+      <h2>Sasol Bursary Programme</h2>
+      <p><strong>Deadline:</strong> 30 April</p>
+      <p><strong>Funding:</strong> Full tuition + allowance</p>
+      <p><strong>Science Fields:</strong> Chemistry, Physics, Chemical engineering</p>
+      <a href="https://www.sasolbursaries.com" target="_blank">Apply at Sasol Bursaries</a>
+    </div>
+
+    <div class="card">
+      <h2>Square Kilometre Array (SKA) Bursaries</h2>
+      <p><strong>Deadline:</strong> 31 July</p>
+      <p><strong>Funding:</strong> R150k p.a.</p>
+      <p><strong>Fields:</strong> Astrophysics, Data engineering, Radio astronomy</p>
+      <a href="https://www.ska.ac.za/careers" target="_blank">Apply at SKA careers</a>
+    </div>
+
+    <div class="card">
+      <h2>National Zoological Gardens Bursaries</h2>
+      <p><strong>Deadline:</strong> 30 September</p>
+      <p><strong>Funding:</strong> R80k p.a.</p>
+      <p><strong>Fields:</strong> Zoology, Conservation biology, Wildlife management</p>
+      <a href="https://www.nzg.ac.za/bursaries" target="_blank">Apply at NZG bursaries</a>
+    </div>
+
+    <div class="card">
+      <h2>Agricultural Research Council (ARC) Bursaries</h2>
+      <p><strong>Deadline:</strong> 30 September</p>
+      <p><strong>Funding:</strong> R96k p.a.</p>
+      <p><strong>Fields:</strong> Agricultural science, Plant pathology, Soil science</p>
+      <a href="https://www.arc.agric.za" target="_blank">Apply at ARC website</a>
+    </div>
+
+    <div class="card">
+      <h2>Medical Research Council (MRC) Bursaries</h2>
+      <p><strong>Deadline:</strong> 31 July</p>
+      <p><strong>Funding:</strong> R140k p.a.</p>
+      <p><strong>Fields:</strong> Biomedical science, Epidemiology, Neuroscience</p>
+      <a href="https://www.mrc.ac.za/funding" target="_blank">Apply at MRC funding</a>
+    </div>
+
+    <div class="card">
+      <h2>Eskom Bursaries (Science Focus)</h2>
+      <p><strong>Deadline:</strong> 31 July</p>
+      <p><strong>Funding:</strong> Full tuition + stipend</p>
+      <p><strong>Fields:</strong> Nuclear physics, Environmental science, Material science</p>
+      <a href="https://www.eskom.co.za/careers" target="_blank">Apply at Eskom careers</a>
+    </div>
+
+    <div class="card">
+      <h2>Mintek Bursaries (Minerals Science)</h2>
+      <p><strong>Deadline:</strong> 30 June</p>
+      <p><strong>Funding:</strong> R110k p.a. + vacation work</p>
+      <p><strong>Fields:</strong> Geology, Metallurgy, Nanotechnology</p>
+      <a href="https://www.mintek.co.za/careers" target="_blank">Apply at Mintek careers</a>
+    </div>
+
+    <div class="card">
+      <h2>NRF-SAAO (Astronomy) Bursaries</h2>
+      <p><strong>Deadline:</strong> 31 August</p>
+      <p><strong>Funding:</strong> R130k p.a.</p>
+      <p><strong>Fields:</strong> Astrophysics, Space science, Optical engineering</p>
+      <a href="https://www.saao.ac.za/funding" target="_blank">Apply at SAAO funding</a>
+    </div>
+
+    <div class="card">
+      <h2>Water Research Commission (WRC) Bursaries</h2>
+      <p><strong>Deadline:</strong> 30 September</p>
+      <p><strong>Funding:</strong> R100k p.a.</p>
+      <p><strong>Fields:</strong> Hydrology, Water resource management, Aquatic ecology</p>
+      <a href="https://www.wrc.org.za/bursaries" target="_blank">Apply at WRC bursaries</a>
+    </div>
+
+    <div class="card">
+      <h2>National Bioinformatics Network (NBN) Bursaries</h2>
+      <p><strong>Deadline:</strong> 31 July</p>
+      <p><strong>Funding:</strong> R90k p.a.</p>
+      <p><strong>Fields:</strong> Bioinformatics, Computational biology, Genomics</p>
+      <a href="https://www.bioinformatics.org.za" target="_blank">Apply at NBN website</a>
+    </div>
+
+    <div class="card">
+      <h2>DSI-NRF Centre of Excellence Bursaries</h2>
+      <p><strong>Deadline:</strong> Varies by centre (July–September)</p>
+      <p><strong>Funding:</strong> Up to R200k p.a.</p>
+      <p><strong>Focus Areas:</strong> Palaeosciences, Mathematical sciences, Tree health biotechnology</p>
+      <a href="https://www.nrf.ac.za/centres-excellence" target="_blank">Apply at NRF Centres of Excellence</a>
+    </div>
+
+    <div class="card">
+      <h2>University-Specific Science Bursaries</h2>
+      <table>
+        <tr style="background:#f0f0f0;"><th style="text-align:left;padding:4px;">University</th><th style="text-align:left;padding:4px;">Focus Area</th><th style="text-align:left;padding:4px;">Deadline</th></tr>
+        <tr><td style="padding:4px;">UCT</td><td style="padding:4px;">Marine biology</td><td style="padding:4px;">31 July</td></tr>
+        <tr><td style="padding:4px;">Wits</td><td style="padding:4px;">Particle physics</td><td style="padding:4px;">30 June</td></tr>
+        <tr><td style="padding:4px;">Stellenbosch</td><td style="padding:4px;">Food science</td><td style="padding:4px;">31 August</td></tr>
+      </table>
+    </div>
+
+  </div>
+
+  <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
+    &copy; 2025 YouthConnect SA<br>
+    <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
+    &nbsp;|&nbsp;
+    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouthConnect SA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden; /* Prevent side scrolling */
+    }
+
+    /* Header (Navigation Bar) */
+    header {
+      background: #111;
+      color: white;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: white;
+    }
+    nav.menu {
+      display: flex;
+      flex-direction: column;
+      background: #111;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      padding: 10px;
+      border-radius: 6px;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      min-width: 180px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    }
+    nav.menu.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    nav.menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.92rem;
+      transition: color 0.2s;
+      padding: 7px 12px;
+      border-radius: 4px;
+      margin-bottom: 2px;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      display: block;
+      border-bottom: 1px solid #363535; /* Add grey divider */
+    }
+    nav.menu a:last-child {
+      border-bottom: none; /* Remove divider from last button */
+    }
+    nav.menu a:hover {
+      background: #0066cc;
+      color: #fff;
+    }
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 0;
+      background: #111; /* Match header color */
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      transition: background 0.2s, box-shadow 0.2s;
+      position: relative;
+    }
+    .menu-toggle:hover {
+      background: #111; /* Keep header color on hover */
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15); /* Black shadow */
+    }
+    .menu-toggle .bar, .menu-toggle .bar:before, .menu-toggle .bar:after {
+      display: block;
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 3px;
+      background: #fff; /* Hamburger lines are white */
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      content: '';
+    }
+    .menu-toggle .bar {
+      top: 21px;
+    }
+    .menu-toggle .bar:before {
+      top: -8px;
+    }
+    .menu-toggle .bar:after {
+      top: 8px;
+    }
+    .menu-toggle.active .bar {
+      background: transparent;
+    }
+    .menu-toggle.active .bar:before,
+    .menu-toggle.active .bar:after {
+      background: #fff; /* X lines are white */
+    }
+    .menu-toggle.active .bar:before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+    .menu-toggle.active .bar:after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* Content Sections */
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    section h2 {
+      color: #000;
+      text-align: center;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    section ul li {
+      margin: 0.5rem 0;
+    }
+
+    section ul li a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    section ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .university-block {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .university-block h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .university-block p {
+      margin: 0.2rem 0;
+    }
+    .apply-btn {
+      display: inline-block;
+      margin-top: 0.7rem;
+      padding: 0.5rem 1.2rem;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .apply-btn:hover {
+      background: #004999;
+    }
+
+    #main-content {
+      transition: margin-right 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+    body.menu-open #main-content {
+      margin-right: 250px;
+    }
+
+    @media (max-width: 600px) {
+      body.menu-open #main-content {
+        margin-right: 200px;
+      }
+      nav.menu {
+        right: 0;
+        left: 0;
+        top: 56px;
+        min-width: unset;
+        width: 100vw;
+        border-radius: 0 0 12px 12px;
+      }
+      .menu-toggle {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    .site-footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-top: 2rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+      border-top: 2px solid #0066cc;
+    }
+
+    .about-block {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      padding: 2rem 2.5rem;
+      margin: 2rem auto;
+      max-width: 700px;
+      text-align: center;
+      border-left: 6px solid #000000;
+    }
+    .about-block h2 {
+      color: #0066cc;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .about-block p {
+      color: #222;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">YouthConnect SA</div>
+    <button class="menu-toggle" aria-label="Open menu">
+      <span class="bar"></span>
+    </button>
+    <nav class="menu">
+      <a href="colleges.html">college application</a>
+      <a href="Accounting bursaries.html">Accounting Bursaries</a>
+      <a href="Arts bursaries.html">Arts</a>
+      <a href="commerce bursaries.html">Commerce</a>
+      <a href="Computer Science and IT bursaries.html">Computer/IT</a>
+      <a href="Construction bursaries.html">Construction</a>
+      <a href="education bursaries.html">Education</a>
+      <a href="Engineering busaries.html">Engineering</a>
+      <a href="general bursaries.html">General</a>
+      <a href="law bursaries.html">Law</a>
+      <a href="medical bursaries.html">Medical</a>
+      <a href="NSFAS.html">NSFAS</a>
+      <a href="postgraduate bursaries.html">Postgraduate</a>
+      <a href="science bursaries.html">Science</a>
+    </nav>
+  </header>
+
+  <div id="main-content">
+    <!-- Main Sections -->
+    <section id="universities">
+      <h2>🎓 Universities</h2>
+      <!-- University blocks generated from tableConvert.com_hf4k3g.json -->
+      <div class="university-block">
+        <h3>University of Cape Town (UCT)</h3>
+        <p><strong>Location:</strong> Cape Town, Western Cape</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 31 Jul 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R300</p>
+        <a href="https://www.uct.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of the Witwatersrand (Wits)</h3>
+        <p><strong>Location:</strong> Johannesburg, Gauteng</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R700</p>
+        <a href="https://www.wits.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Stellenbosch University (SU)</h3>
+        <p><strong>Location:</strong> Stellenbosch, Western Cape</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 31 Jul 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R100</p>
+        <a href="https://www.sun.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Pretoria (UP)</h3>
+        <p><strong>Location:</strong> Pretoria, Gauteng</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Jun 2025</p>
+        <p><strong>Application Fee:</strong> R300 / $30</p>
+        <a href="https://www.up.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of KwaZulu-Natal (UKZN)</h3>
+        <p><strong>Location:</strong> Durban / PMB, KwaZulu-Natal</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R210 / R490</p>
+        <a href="https://www.ukzn.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Johannesburg (UJ)</h3>
+        <p><strong>Location:</strong> Johannesburg, Gauteng</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 31 Oct 2025</p>
+        <p><strong>Application Fee:</strong> Free / R200</p>
+        <a href="https://www.uj.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of the Western Cape (UWC)</h3>
+        <p><strong>Location:</strong> Bellville, Western Cape</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free / Free</p>
+        <a href="https://www.uwc.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of the Free State (UFS)</h3>
+        <p><strong>Location:</strong> Bloemfontein, Free State</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R500</p>
+        <a href="https://www.ufs.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>North-West University (NWU)</h3>
+        <p><strong>Location:</strong> Potchefstroom / Mahikeng / Vanderbijlpark</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free / Free</p>
+        <a href="https://www.nwu.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Rhodes University</h3>
+        <p><strong>Location:</strong> Makhanda, Eastern Cape</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R750</p>
+        <a href="https://www.ru.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Limpopo</h3>
+        <p><strong>Location:</strong> Turfloop, Limpopo</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R200 / R750</p>
+        <a href="https://www.ul.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Venda (Univen)</h3>
+        <p><strong>Location:</strong> Thohoyandou, Limpopo</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R200</p>
+        <a href="https://www.univen.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Zululand (UniZulu)</h3>
+        <p><strong>Location:</strong> KwaDlangezwa, KwaZulu-Natal</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R220 / R275</p>
+        <a href="https://www.unizulu.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Fort Hare (UFH)</h3>
+        <p><strong>Location:</strong> Alice / East London</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free (online) / R500</p>
+        <a href="https://www.ufh.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Walter Sisulu University (WSU)</h3>
+        <p><strong>Location:</strong> Mthatha, EC</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R200</p>
+        <a href="https://www.wsu.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Nelson Mandela University</h3>
+        <p><strong>Location:</strong> Gqeberha (PE), EC</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free / Free</p>
+        <a href="https://www.mandela.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of South Africa (UNISA)</h3>
+        <p><strong>Location:</strong> Distance / Nationwide</p>
+        <p><strong>Application Dates:</strong> 1 Sep – 1 Jan 2026</p>
+        <p><strong>Application Fee:</strong> R135 / R135</p>
+        <a href="https://www.unisa.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>University of Mpumalanga (UMP)</h3>
+        <p><strong>Location:</strong> Mbombela, Mpumalanga</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R150 / R350</p>
+        <a href="https://www.ump.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Sol Plaatje University (SPU)</h3>
+        <p><strong>Location:</strong> Kimberley, Northern Cape</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free / Free</p>
+        <a href="https://www.spu.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Tshwane University of Technology (TUT)</h3>
+        <p><strong>Location:</strong> Pretoria / Multiple</p>
+        <p><strong>Application Dates:</strong> 1 Apr – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> Free / Free</p>
+        <a href="https://www.tut.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Cape Peninsula University of Technology (CPUT)</h3>
+        <p><strong>Location:</strong> Cape Town, WC</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R185</p>
+        <a href="https://www.cput.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Durban University of Technology (DUT)</h3>
+        <p><strong>Location:</strong> Durban / PMB</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R250 / R300</p>
+        <a href="https://www.dut.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Vaal University of Technology (VUT)</h3>
+        <p><strong>Location:</strong> Vanderbijlpark, Gauteng</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R110</p>
+        <a href="https://www.vut.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Mangosuthu University of Technology (MUT)</h3>
+        <p><strong>Location:</strong> Umlazi, KwaZulu-Natal</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R250 / R300</p>
+        <a href="https://www.mut.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Central University of Technology (CUT)</h3>
+        <p><strong>Location:</strong> Bloemfontein, Free State</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R100 / R200</p>
+        <a href="https://www.cut.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+      <div class="university-block">
+        <h3>Sefako Makgatho Health Sciences University</h3>
+        <p><strong>Location:</strong> Ga-Rankuwa, Gauteng</p>
+        <p><strong>Application Dates:</strong> Open – 30 Sep 2025</p>
+        <p><strong>Application Fee:</strong> R200 / R300</p>
+        <a href="https://www.smu.ac.za" target="_blank" class="apply-btn">Apply</a>
+      </div>
+    </section>
+    
+    <section id="about" class="about-block">
+      <h2>📘 About</h2>
+      <p>YouthConnect SA is a simple platform that connects young South Africans with official opportunities like college, university, and bursaries applications for the <strong>2025/2026 academic year</strong>. We aim to centralize access so that youth don't have to search across dozens of websites.</p>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var menuToggle = document.querySelector('.menu-toggle');
+      var menu = document.querySelector('nav.menu');
+      if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          menu.classList.toggle('active');
+          menuToggle.classList.toggle('active'); // Toggle active on button
+        });
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+          if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== menuToggle) {
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active'); // Remove active from button
+          }
+        });
+      }
+    });
+  </script>
+  <footer class="site-footer">
+    <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
+      &copy; 2025 YouthConnect SA<br>
+      <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
+      &nbsp;|&nbsp;
+      <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
+    </footer>
+  </footer>
+</body>
+</html>

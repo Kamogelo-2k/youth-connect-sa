@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accounting Bursaries – YouthConnect SA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 0.5rem 0 0.5rem 0;
+      padding: 4px 10px;
+      font-size: 0.95rem;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      top: 0;
+    }
+    .back-btn:hover {
+      background: #222;
+      color: #fff;
+    }
+    .container {
+      padding: 2rem;
+    }
+    .college-block {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .college-block h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .college-block p {
+      margin: 0.2rem 0;
+    }
+    .college-block a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .college-block a:hover {
+      text-decoration: underline;
+    }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 2rem; }
+    .site-footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-top: 2rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+      border-top: 2px solid #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YouthConnect SA</div>
+  </header>
+  <div style="width:100%;display:flex;justify-content:flex-start;">
+  </div>
+
+  <!-- Updated college list by province with card style -->
+  <div class="container" id="collegeList">
+    <h1>Colleges by Province</h1>
+    <h2>1. Western Cape</h2>
+    <div class="college-block">
+      <h3>False Bay College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.falsebaycollege.co.za" target="_blank">falsebaycollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Northlink College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.northlink.co.za" target="_blank">northlink.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>South Cape College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.sccollege.co.za" target="_blank">sccollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>West Coast College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.westcoastcollege.co.za" target="_blank">westcoastcollege.co.za</a></p>
+    </div>
+    <h2>2. Gauteng</h2>
+    <div class="college-block">
+      <h3>Central Johannesburg College</h3>
+      <p><strong>Application Fee:</strong> R200</p>
+      <p><strong>Application Period:</strong> Apr–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.cjc.edu.za" target="_blank">cjc.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Ekurhuleni East College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.eec.edu.za" target="_blank">eec.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Ekurhuleni West College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ewc.edu.za" target="_blank">ewc.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Sedibeng College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.sedcol.co.za" target="_blank">sedcol.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Tshwane North College</h3>
+      <p><strong>Application Fee:</strong> R200</p>
+      <p><strong>Application Period:</strong> Apr–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.tnc.edu.za" target="_blank">tnc.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Tshwane South College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.tsc.edu.za" target="_blank">tsc.edu.za</a></p>
+    </div>
+    <h2>3. KwaZulu-Natal</h2>
+    <div class="college-block">
+      <h3>Coastal College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.coastalkzn.co.za" target="_blank">coastalkzn.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Elangeni College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.elangeni.edu.za" target="_blank">elangeni.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Majuba College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.majuba.edu.za" target="_blank">majuba.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Mnambithi College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.mnambithicollege.co.za" target="_blank">mnambithicollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Thekwini College</h3>
+      <p><strong>Application Fee:</strong> R200</p>
+      <p><strong>Application Period:</strong> Apr–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.thekwinicollege.co.za" target="_blank">thekwinicollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Umfolozi College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.umfolozicollege.co.za" target="_blank">umfolozicollege.co.za</a></p>
+    </div>
+    <h2>4. Eastern Cape</h2>
+    <div class="college-block">
+      <h3>Buffalo City College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.bccollege.co.za" target="_blank">bccollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Eastcape Midlands College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.emcol.co.za" target="_blank">emcol.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Ikhala College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ikhala.edu.za" target="_blank">ikhala.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Ingwe College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ingwecollege.edu.za" target="_blank">ingwecollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>King Sabata Dalindyebo College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ksdcollege.edu.za" target="_blank">ksdcollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Lovedale College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.lovedalecollege.co.za" target="_blank">lovedalecollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Port Elizabeth College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.pecollege.edu.za" target="_blank">pecollege.edu.za</a></p>
+    </div>
+    <h2>5. Free State</h2>
+    <div class="college-block">
+      <h3>Flavius Mareka College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.fmc.edu.za" target="_blank">fmc.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Goldfields College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.goldfieldscollege.co.za" target="_blank">goldfieldscollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Maluti College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.malutitvet.co.za" target="_blank">malutitvet.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Motheo College</h3>
+      <p><strong>Application Fee:</strong> R150</p>
+      <p><strong>Application Period:</strong> May–Aug 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.motheocollege.co.za" target="_blank">motheocollege.co.za</a></p>
+    </div>
+    <h2>6. Limpopo</h2>
+    <div class="college-block">
+      <h3>Capricorn College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.capricorncollege.edu.za" target="_blank">capricorncollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Lephalale College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.lephalalecollege.co.za" target="_blank">lephalalecollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Letaba College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.letaba.edu.za" target="_blank">letaba.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Sekhukhune College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.sekhukhunecollege.edu.za" target="_blank">sekhukhunecollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Vhembe College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.vhembecollege.edu.za" target="_blank">vhembecollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Waterberg College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.waterbergcollege.co.za" target="_blank">waterbergcollege.co.za</a></p>
+    </div>
+    <h2>7. Mpumalanga</h2>
+    <div class="college-block">
+      <h3>Ehlanzeni College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ehlanzenicollege.co.za" target="_blank">ehlanzenicollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Gert Sibande College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.gscollege.edu.za" target="_blank">gscollege.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Nkangala College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.nkangalacollege.co.za" target="_blank">nkangalacollege.co.za</a></p>
+    </div>
+    <h2>8. North West</h2>
+    <div class="college-block">
+      <h3>Orbit College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.orbitcollege.co.za" target="_blank">orbitcollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Taletso College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.taletso.edu.za" target="_blank">taletso.edu.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Vuselela College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.vuselelacollege.co.za" target="_blank">vuselelacollege.co.za</a></p>
+    </div>
+    <h2>9. Northern Cape</h2>
+    <div class="college-block">
+      <h3>Northern Cape Urban College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.nckcollege.co.za" target="_blank">nckcollege.co.za</a></p>
+    </div>
+    <div class="college-block">
+      <h3>Northern Cape Rural College</h3>
+      <p><strong>Application Fee:</strong> R100</p>
+      <p><strong>Application Period:</strong> Apr–Sep 2025</p>
+      <p><strong>Website:</strong> <a href="https://www.ncrcollege.co.za" target="_blank">ncrcollege.co.za</a></p>
+    </div>
+  </div>
+  <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
+    &copy; 2025 YouthConnect SA<br>
+    <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
+    &nbsp;|&nbsp;
+    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
+  </footer>
+</body>
+</html>
