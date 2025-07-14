@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Arts Bursaries – YouthConnect SA</title>
+  <title>general – YouthConnect SA</title>
   <style>
     body {
       margin: 0;
@@ -21,155 +21,54 @@
       font-weight: bold;
       font-size: 1.2rem;
     }
-    .back-btn {
-      display: inline-block;
-      margin: 0.5rem 0 0.5rem 0;
-      padding: 4px 10px;
-      font-size: 0.95rem;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-      transition: background 0.2s, color 0.2s;
-      position: relative;
-      top: 0;
-    }
-    .back-btn:hover {
-      background: #222;
-      color: #fff;
-    }
 
-    .container {
-      padding: 2rem;
-    }
-
-    .card {
-      background: white;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: #333;
-    }
-
-    .card a {
-      display: inline-block;
-      margin-top: 8px;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    .card a:hover {
-      text-decoration: underline;
-    }
-
-    .site-footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 1.2rem 0;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      margin-top: 2rem;
-      box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
-      border-top: 2px solid #0066cc;
-    }
-    .sidebar {
-      position: fixed;
-      top: 80px;
-      left: 0;
-      width: 220px;
-      background: #fff;
-      border-right: 1px solid #eee;
-      height: 100%;
-      padding: 2rem 1rem 2rem 1rem;
-      box-shadow: 2px 0 8px rgba(0,0,0,0.04);
-      z-index: 10;
-      font-size: 1.05rem;
-    }
-    .sidebar a {
-      display: block;
-      margin-bottom: 1.1rem;
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-      padding-left: 8px;
-    }
-    .sidebar a:hover {
-      color: #003366;
-      text-decoration: underline;
-    }
-    @media (max-width: 900px) {
-      .sidebar {
-        position: static;
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        box-shadow: none;
-        padding: 1rem;
-        margin-bottom: 2rem;
-      }
-      .container {
-        margin-left: 0;
-      }
-    }
     .main-content {
-      margin-left: 240px;
-      max-width: 900px;
+      max-width: 800px;
+      margin: 2rem auto;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.07);
       padding: 2.5rem 2rem;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
     }
-    @media (max-width: 900px) {
-      .main-content {
-        margin-left: 0;
-        padding: 1.2rem;
-      }
-    }
-    .section-title {
-      font-size: 2rem;
+
+    h1 {
       color: #0066cc;
-      margin-bottom: 1.2rem;
+      font-size: 2rem;
       font-weight: 700;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .info-card {
-      background: #f9fbff;
-      border-left: 5px solid #0066cc;
-      border-radius: 8px;
+      text-align: center;
       margin-bottom: 2rem;
-      padding: 1.5rem 1.2rem;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
     }
-    .info-card h3 {
-      margin-top: 0;
+
+    h2 {
       color: #003366;
       font-size: 1.3rem;
+      margin-top: 2rem;
       margin-bottom: 0.7rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-weight: 600;
     }
-    .info-list {
-      margin: 0.7rem 0 0.7rem 1.2rem;
-      padding: 0;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #f6faff;
+      border-radius: 6px;
+      overflow: hidden;
     }
-    .info-list li {
-      margin-bottom: 0.5rem;
+
+    th, td {
+      border: 1px solid #dbeafe;
+      padding: 0.7rem 1rem;
+      text-align: center;
       font-size: 1.05rem;
     }
+
+    th {
+      background: #e0f2fe;
+      color: #0066cc;
+      font-weight: 600;
+    }
+
     .tip {
       background: #e6f7e6;
       border-left: 4px solid #2ecc40;
@@ -178,74 +77,26 @@
       margin: 1rem 0;
       font-size: 1.05rem;
       color: #1a7f37;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
-    .example {
-      background: #fffbe6;
-      border-left: 4px solid #f7b731;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-      margin: 1rem 0;
-      font-size: 1.05rem;
-      color: #7f5f00;
-      font-style: italic;
-    }
-    .aps-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      background: #f6faff;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .aps-table th, .aps-table td {
-      border: 1px solid #dbeafe;
-      padding: 0.7rem 1rem;
-      text-align: center;
-      font-size: 1.05rem;
-    }
-    .aps-table th {
-      background: #e0f2fe;
-      color: #0066cc;
-      font-weight: 600;
-    }
-    .section-icon {
-      font-size: 1.5em;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-    .highlight {
-      color: #0066cc;
-      font-weight: 600;
-    }
-    .subsection {
-      margin-top: 1.2rem;
-      margin-bottom: 0.7rem;
-      font-size: 1.15rem;
-      color: #003366;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .vacwork-list {
+
+    ul, ol {
       margin-left: 1.2rem;
-      margin-bottom: 0.7rem;
     }
-    .vacwork-list li {
-      margin-bottom: 0.3rem;
+
+    footer {
+      background:#000;
+      color:#fff;
+      text-align:center;
+      padding:1rem 0;
+      font-size:1rem;
+      margin-top:2rem;
     }
-    .final-tip {
-      background: #e6f7ff;
-      border-left: 4px solid #00bfff;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-      margin: 1.2rem 0;
-      font-size: 1.08rem;
-      color: #0066cc;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+
+    @media (max-width: 900px) {
+      .main-content {
+        padding: 1.2rem;
+        margin: 1.2rem;
+      }
     }
   </style>
 </head>
@@ -253,274 +104,144 @@
   <header>
     <div class="logo">YouthConnect SA</div>
   </header>
-  <div style="width:100%;display:flex;justify-content:flex-start;">
-    <!-- Back button removed -->
-  </div>
-
-  <div class="sidebar">
-    <!-- REMOVE ALL NAV LINKS BELOW -->
-    <!--
-    <a href="#motivational-letter">📝 How to Write a Motivational Letter</a>
-    <a href="#bursary-interview">🎤 Bursary Interview Prep</a>
-    <a href="#aps-score">📊 APS Score Calculation</a>
-    <a href="#nbt-tests">🧪 NBT Tests</a>
-    <a href="#application-tips">📬 Application Tips</a>
-    <a href="#free-education">🎓 Free Education Options</a>
-    <a href="#vac-work">💼 Vac Work</a>
-    <a href="#maximize-bursary">🚀 Maximize Bursary Chances</a>
-    -->
-  </div>
   <div class="main-content">
-    <div id="motivational-letter" class="info-card">
-      <div class="section-title"><span class="section-icon">📝</span>How to Write a Bursary Motivational Letter</div>
-      <div class="subsection">Format:</div>
-      <ul class="info-list">
-        <li><span class="highlight">Header:</span> Your contact details, date, and bursary committee’s address.</li>
-        <li><span class="highlight">Salutation:</span> "Dear [Bursary Committee/Name if known]."</li>
-        <li><span class="highlight">Introduction:</span> Briefly introduce yourself, your academic level, and the bursary you’re applying for.</li>
-        <li><span class="highlight">Body:</span>
-          <ul>
-            <li>Academic achievements: Mention your grades, awards, or relevant subjects.</li>
-            <li>Financial need: Explain why you need funding (be honest but professional).</li>
-            <li>Career goals: Link the bursary to your future aspirations.</li>
-            <li>Extracurriculars: Highlight leadership, volunteering, or community involvement.</li>
-          </ul>
-        </li>
-        <li><span class="highlight">Conclusion:</span> Thank the committee and express enthusiasm for their support.</li>
-        <li><span class="highlight">Signature:</span> "Sincerely, [Your Name]."</li>
-      </ul>
-      <div class="subsection">Tips:</div>
-      <div class="tip">✅ Keep it concise (1 page).<br>✅ Tailor it to the bursary’s values.<br>✅ Proofread for errors.</div>
-    </div>
+    <h1>General Bursary Tips & Guidance</h1>
 
-    <div id="bursary-interview" class="info-card">
-      <div class="section-title"><span class="section-icon">🎤</span>Preparing for a Bursary Interview</div>
-      <div class="subsection">Common Questions:</div>
-      <ul class="info-list">
-        <li>Why do you deserve this bursary?</li>
-        <li>How will you contribute to society after graduating?</li>
-        <li>What challenges have you overcome?</li>
-        <li>How do you manage academic pressure?</li>
-      </ul>
-      <div class="subsection">Tips:</div>
-      <div class="tip">✅ Research the bursary provider’s mission.<br>✅ Dress professionally.<br>✅ Bring documents (ID, academic records, proof of income).<br>✅ Practice with mock interviews.</div>
-    </div>
+    <h2>1. How to Write a Bursary Motivational Letter</h2>
+    <p>A strong motivational letter increases your chances of securing a bursary. Follow this structure:</p>
+    <b>Format:</b>
+    <ul>
+      <li><b>Header:</b> Your contact details, date, and bursary committee’s address.</li>
+      <li><b>Salutation:</b> "Dear [Bursary Committee/Name if known]."</li>
+      <li><b>Introduction:</b> Briefly introduce yourself, your academic level, and the bursary you’re applying for.</li>
+      <li><b>Body:</b>
+        <ul>
+          <li>Academic achievements: Mention your grades, awards, or relevant subjects.</li>
+          <li>Financial need: Explain why you need funding (be honest but professional).</li>
+          <li>Career goals: Link the bursary to your future aspirations.</li>
+          <li>Extracurriculars: Highlight leadership, volunteering, or community involvement.</li>
+        </ul>
+      </li>
+      <li><b>Conclusion:</b> Thank the committee and express enthusiasm for their support.</li>
+      <li><b>Signature:</b> "Sincerely, [Your Name]."</li>
+    </ul>
+    <b>Tips:</b>
+    <ul>
+      <li>Keep it concise (1 page).</li>
+      <li>Tailor it to the bursary’s values (e.g., if it’s for engineering, emphasize STEM passion).</li>
+      <li>Proofread for errors.</li>
+    </ul>
 
-    <div id="aps-score" class="info-card">
-      <div class="section-title"><span class="section-icon">📊</span>Calculating Your APS Score for University Admission</div>
-      <div class="subsection">How to Calculate:</div>
-      <ul class="info-list">
-        <li>List your top 6 subjects (excluding Life Orientation).</li>
-        <li>Convert each subject’s final matric mark to an APS point (see table below).</li>
-        <li>Add the points for your total APS.</li>
-      </ul>
-      <table class="aps-table">
-        <tr><th>Matric %</th><th>APS Points</th></tr>
-        <tr><td>80–100%</td><td>7</td></tr>
-        <tr><td>70–79%</td><td>6</td></tr>
-        <tr><td>60–69%</td><td>5</td></tr>
-        <tr><td>50–59%</td><td>4</td></tr>
-        <tr><td>40–49%</td><td>3</td></tr>
-        <tr><td>30–39%</td><td>2</td></tr>
-        <tr><td>0–29%</td><td>1</td></tr>
-      </table>
-      <div class="example">Example: If you scored 75% in Math (6), 80% in English (7), and 65% in Science (5), your APS = 6 + 7 + 5 = 18.</div>
-      <div class="tip">ℹ️ Minimum APS requirements vary per university and program (e.g., Medicine may require 35+).</div>
-    </div>
+    <h2>2. Preparing for a Bursary Interview</h2>
+    <p>Bursary interviews assess your suitability for funding. Prepare by:</p>
+    <b>Common Questions:</b>
+    <ul>
+      <li>Why do you deserve this bursary?</li>
+      <li>How will you contribute to society after graduating?</li>
+      <li>What challenges have you overcome?</li>
+      <li>How do you manage academic pressure?</li>
+    </ul>
+    <b>Tips:</b>
+    <ul>
+      <li>Research the bursary provider’s mission.</li>
+      <li>Dress professionally.</li>
+      <li>Bring documents (ID, academic records, proof of income).</li>
+      <li>Practice with mock interviews.</li>
+    </ul>
 
-    <div id="nbt-tests" class="info-card">
-      <div class="section-title"><span class="section-icon">🧪</span>NBT Tests for University Entrance</div>
-      <div class="subsection">Key Details:</div>
-      <ul class="info-list">
-        <li><span class="highlight">Two Tests:</span>
-          <ul>
-            <li>AQL (Academic and Quantitative Literacy): Mandatory for all.</li>
-            <li>Mathematics: Required for STEM courses.</li>
-          </ul>
-        </li>
-        <li>When to Write: Usually in Grade 12 or before university applications.</li>
-      </ul>
-      <div class="subsection">How to Prepare:</div>
-      <div class="tip">✅ Use past papers (NBT website).<br>✅ Focus on critical thinking and problem-solving.</div>
-      <div class="subsection">Importance:</div>
-      <div class="tip">ℹ️ Some universities (e.g., UCT, Wits) use NBTs for admissions or placement.</div>
-    </div>
+    <h2>3. Calculating Your APS Score for University Admission</h2>
+    <p>The Admission Point Score (APS) is used by South African universities to evaluate applicants.</p>
+    <b>How to Calculate:</b>
+    <ul>
+      <li>List your top 6 subjects (excluding Life Orientation).</li>
+      <li>Convert each subject’s final matric mark to an APS point (see table below).</li>
+      <li>Add the points for your total APS.</li>
+    </ul>
+    <table>
+      <tr><th>Matric %</th><th>APS Points</th></tr>
+      <tr><td>80–100%</td><td>7</td></tr>
+      <tr><td>70–79%</td><td>6</td></tr>
+      <tr><td>60–69%</td><td>5</td></tr>
+      <tr><td>50–59%</td><td>4</td></tr>
+      <tr><td>40–49%</td><td>3</td></tr>
+      <tr><td>30–39%</td><td>2</td></tr>
+      <tr><td>0–29%</td><td>1</td></tr>
+    </table>
+    <p><b>Example:</b> If you scored 75% in Math (6), 80% in English (7), and 65% in Science (5), your APS = 6 + 7 + 5 = 18.</p>
+    <b>Note:</b>
+    <ul>
+      <li>Minimum APS requirements vary per university and program (e.g., Medicine may require 35+).</li>
+    </ul>
 
-    <div id="application-tips" class="info-card">
-      <div class="section-title"><span class="section-icon">📬</span>Tips for Submitting Your Bursary Application</div>
-      <ul class="info-list">
-        <li>Start Early – Deadlines are strict!</li>
-        <li>Read Requirements – Ensure you qualify before applying.</li>
-        <li>Complete All Fields – Missing info = instant disqualification.</li>
-        <li>Attach Documents – Certified copies of ID, matric results, proof of income.</li>
-        <li>Submit via Correct Channel – Online portal, email, or post.</li>
-        <li>Follow Up – Confirm receipt if no acknowledgment.</li>
-      </ul>
-    </div>
+    <h2>4. NBT Tests for University Entrance</h2>
+    <p>The National Benchmark Tests (NBTs) assess academic readiness for university.</p>
+    <b>Key Details:</b>
+    <ul>
+      <li>Two Tests:
+        <ul>
+          <li>AQL (Academic and Quantitative Literacy): Mandatory for all.</li>
+          <li>Mathematics: Required for STEM courses.</li>
+        </ul>
+      </li>
+      <li>When to Write: Usually in Grade 12 or before university applications.</li>
+    </ul>
+    <b>How to Prepare:</b>
+    <ul>
+      <li>Use past papers (NBT website).</li>
+      <li>Focus on critical thinking and problem-solving.</li>
+    </ul>
+    <b>Importance:</b>
+    <ul>
+      <li>Some universities (e.g., UCT, Wits) use NBTs for admissions or placement.</li>
+    </ul>
 
-    <div id="free-education" class="info-card">
-      <div class="section-title"><span class="section-icon">🎓</span>How to Get Free Education in South Africa</div>
-      <div class="subsection">Options for fully funded studies:</div>
-      <ul class="info-list">
-        <li><span class="highlight">Government Bursaries:</span>
-          <ul>
-            <li>NSFAS – For students from households earning &lt; R350k/year.</li>
-            <li>Funza Lushaka – For teaching degrees (must work in public schools after graduating).</li>
-          </ul>
-        </li>
-        <li><span class="highlight">Other Options:</span>
-          <ul>
-            <li>Corporate Bursaries (e.g., Sasol, Transnet).</li>
-            <li>Scholarships (e.g., Mandela Rhodes, Allan Gray).</li>
-            <li>TVET Colleges – Offer free or low-cost vocational training.</li>
-          </ul>
-        </li>
-      </ul>
-      <div class="tip">✅ Apply early and meet all criteria.</div>
-    </div>
+    <h2>5. Tips for Submitting Your Bursary Application</h2>
+    <p>Avoid rejection with these steps:</p>
+    <ul>
+      <li>Start Early – Deadlines are strict!</li>
+      <li>Read Requirements – Ensure you qualify before applying.</li>
+      <li>Complete All Fields – Missing info = instant disqualification.</li>
+      <li>Attach Documents – Certified copies of ID, matric results, proof of income.</li>
+      <li>Submit via Correct Channel – Online portal, email, or post.</li>
+      <li>Follow Up – Confirm receipt if no acknowledgment.</li>
+    </ul>
 
-    <div id="vac-work" class="info-card">
-      <div class="section-title"><span class="section-icon">💼</span>Vac Work – Why You Should Work During University Holidays</div>
-      <div class="subsection">Benefits:</div>
-      <ul class="info-list">
-        <li>Gain Experience – Apply classroom knowledge in real jobs.</li>
-        <li>Build Networks – Connect with potential future employers.</li>
-        <li>Earn Money – Save for tuition or expenses.</li>
-      </ul>
-      <div class="subsection">Companies Offering Vac Work:</div>
-      <ul class="vacwork-list">
-        <li><span class="highlight">Engineering:</span> Eskom, Sasol, BMW.</li>
-        <li><span class="highlight">Finance:</span> ABSA, Deloitte, PwC.</li>
-        <li><span class="highlight">Science/Research:</span> CSIR, SANSA.</li>
-      </ul>
-      <div class="subsection">How to Apply:</div>
-      <ul class="info-list">
-        <li>Check company websites (e.g., Careers &gt; Internships).</li>
-        <li>Use platforms like LinkedIn, Graduates24, or Indeed.</li>
-      </ul>
-      <div class="final-tip">💡 Start applying in your first year for the best opportunities!</div>
-    </div>
+    <h2>6. How to Get Free Education in South Africa</h2>
+    <p>Options for fully funded studies:</p>
+    <b>Government Bursaries:</b>
+    <ul>
+      <li>NSFAS – For students from households earning &lt; R350k/year.</li>
+      <li>Funza Lushaka – For teaching degrees (must work in public schools after graduating).</li>
+    </ul>
+    <b>Other Options:</b>
+    <ul>
+      <li>Corporate Bursaries (e.g., Sasol, Transnet).</li>
+      <li>Scholarships (e.g., Mandela Rhodes, Allan Gray).</li>
+      <li>TVET Colleges – Offer free or low-cost vocational training.</li>
+    </ul>
+    <div class="tip">Tip: Apply early and meet all criteria.</div>
 
-    <div id="maximize-bursary" class="info-card">
-      <div class="section-title"><span class="section-icon">🚀</span>How to Maximize Your Chances of Getting a Bursary</div>
-      <div class="subsection">1. Academic Excellence (High Marks Matter!)</div>
-      <ul class="info-list">
-        <li>Aim for 70%+ in key subjects (especially those related to your field).</li>
-        <li>Improve weak subjects with extra classes or tutoring.</li>
-        <li>Submit your latest academic records (even mid-year results if final marks aren’t available).</li>
-      </ul>
-      <div class="tip">Most bursaries require at least 60% average.<br>Top bursaries (e.g., Investec, Mandela Rhodes) demand 75%+.</div>
-      <div class="subsection">2. Apply Early & Widely</div>
-      <ul class="info-list">
-        <li>Deadlines are strict! Many students miss out by applying late.</li>
-        <li>Apply to multiple bursaries (government, private companies, NGOs).</li>
-        <li>Use bursary search engines like: Bursaries South Africa, CareerWise.</li>
-      </ul>
-      <div class="subsection">3. Write a Powerful Motivational Letter</div>
-      <div class="tip">✅ Explain why you deserve funding.<br>✅ Show passion for your field.<br>✅ Be error-free & professional.</div>
-      <div class="example">"Growing up in a household reliant on social grants, I’ve seen how education can break the cycle of poverty. My 85% average in Physical Science reflects my commitment to becoming an engineer. With this bursary, I aim to develop sustainable energy solutions for rural communities."</div>
-      <div class="subsection">4. Secure Strong Recommendation Letters</div>
-      <ul class="info-list">
-        <li>Ask teachers, mentors, or employers who know your work ethic.</li>
-        <li>Provide them with your CV so they can highlight key strengths.</li>
-      </ul>
-      <div class="subsection">5. Demonstrate Financial Need (If Applicable)</div>
-      <ul class="info-list">
-        <li>Parents’/guardians’ payslips (if employed).</li>
-        <li>SASSA affidavit (if unemployed).</li>
-        <li>Proof of household expenses (rent, medical bills).</li>
-      </ul>
-      <div class="subsection">6. Show Leadership & Extracurricular Involvement</div>
-      <ul class="info-list">
-        <li>School leadership (prefect, RCL, club president).</li>
-        <li>Volunteering (community service, tutoring).</li>
-        <li>Competitions (science fairs, debating, sports).</li>
-      </ul>
-      <div class="subsection">7. Prepare for Interviews (If Required)</div>
-      <ul class="info-list">
-        <li>Practice common questions.</li>
-        <li>Dress formally (even for online interviews).</li>
-        <li>Bring documents (ID, academic records, proof of residence).</li>
-      </ul>
-      <div class="subsection">8. Avoid Common Mistakes</div>
-      <div class="tip">❌ Missing deadlines (set reminders!).<br>❌ Incomplete applications.<br>❌ Generic motivation letters.<br>❌ Ignoring small bursaries (R5,000 can cover textbooks!).</div>
-      <div class="final-tip">🚀 By focusing on grades, applying strategically, and presenting yourself professionally, you’ll maximize your chances of securing funding.<br>Need help finding bursaries? Let me know your field of study, and I’ll suggest options!</div>
-    </div>
+    <h2>7. Vac Work – Why You Should Work During University Holidays</h2>
+    <p>Vacation work (vac work) boosts your employability.</p>
+    <b>Benefits:</b>
+    <ul>
+      <li>Gain Experience – Apply classroom knowledge in real jobs.</li>
+      <li>Build Networks – Connect with potential future employers.</li>
+      <li>Earn Money – Save for tuition or expenses.</li>
+    </ul>
+    <b>Companies Offering Vac Work:</b>
+    <ul>
+      <li>Engineering: Eskom, Sasol, BMW.</li>
+      <li>Finance: ABSA, Deloitte, PwC.</li>
+      <li>Science/Research: CSIR, SANSA.</li>
+    </ul>
+    <b>How to Apply:</b>
+    <ul>
+      <li>Check company websites (e.g., Careers &gt; Internships).</li>
+      <li>Use platforms like LinkedIn, Graduates24, or Indeed.</li>
+    </ul>
   </div>
-
-  <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
-    &copy; 2025 YouthConnect SA<br>
-    <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
-    &nbsp;|&nbsp;
-    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
-  </footer>
-</body>
-</html>
-        <li>Build Networks – Connect with potential future employers.</li>
-        <li>Earn Money – Save for tuition or expenses.</li>
-      </ul>
-      <div class="subsection">Companies Offering Vac Work:</div>
-      <ul class="vacwork-list">
-        <li><span class="highlight">Engineering:</span> Eskom, Sasol, BMW.</li>
-        <li><span class="highlight">Finance:</span> ABSA, Deloitte, PwC.</li>
-        <li><span class="highlight">Science/Research:</span> CSIR, SANSA.</li>
-      </ul>
-      <div class="subsection">How to Apply:</div>
-      <ul class="info-list">
-        <li>Check company websites (e.g., Careers &gt; Internships).</li>
-        <li>Use platforms like LinkedIn, Graduates24, or Indeed.</li>
-      </ul>
-      <div class="final-tip">💡 Start applying in your first year for the best opportunities!</div>
-    </div>
-
-    <div id="maximize-bursary" class="info-card">
-      <div class="section-title"><span class="section-icon">🚀</span>How to Maximize Your Chances of Getting a Bursary</div>
-      <div class="subsection">1. Academic Excellence (High Marks Matter!)</div>
-      <ul class="info-list">
-        <li>Aim for 70%+ in key subjects (especially those related to your field).</li>
-        <li>Improve weak subjects with extra classes or tutoring.</li>
-        <li>Submit your latest academic records (even mid-year results if final marks aren’t available).</li>
-      </ul>
-      <div class="tip">Most bursaries require at least 60% average.<br>Top bursaries (e.g., Investec, Mandela Rhodes) demand 75%+.</div>
-      <div class="subsection">2. Apply Early & Widely</div>
-      <ul class="info-list">
-        <li>Deadlines are strict! Many students miss out by applying late.</li>
-        <li>Apply to multiple bursaries (government, private companies, NGOs).</li>
-        <li>Use bursary search engines like: Bursaries South Africa, CareerWise.</li>
-      </ul>
-      <div class="subsection">3. Write a Powerful Motivational Letter</div>
-      <div class="tip">✅ Explain why you deserve funding.<br>✅ Show passion for your field.<br>✅ Be error-free & professional.</div>
-      <div class="example">"Growing up in a household reliant on social grants, I’ve seen how education can break the cycle of poverty. My 85% average in Physical Science reflects my commitment to becoming an engineer. With this bursary, I aim to develop sustainable energy solutions for rural communities."</div>
-      <div class="subsection">4. Secure Strong Recommendation Letters</div>
-      <ul class="info-list">
-        <li>Ask teachers, mentors, or employers who know your work ethic.</li>
-        <li>Provide them with your CV so they can highlight key strengths.</li>
-      </ul>
-      <div class="subsection">5. Demonstrate Financial Need (If Applicable)</div>
-      <ul class="info-list">
-        <li>Parents’/guardians’ payslips (if employed).</li>
-        <li>SASSA affidavit (if unemployed).</li>
-        <li>Proof of household expenses (rent, medical bills).</li>
-      </ul>
-      <div class="subsection">6. Show Leadership & Extracurricular Involvement</div>
-      <ul class="info-list">
-        <li>School leadership (prefect, RCL, club president).</li>
-        <li>Volunteering (community service, tutoring).</li>
-        <li>Competitions (science fairs, debating, sports).</li>
-      </ul>
-      <div class="subsection">7. Prepare for Interviews (If Required)</div>
-      <ul class="info-list">
-        <li>Practice common questions.</li>
-        <li>Dress formally (even for online interviews).</li>
-        <li>Bring documents (ID, academic records, proof of residence).</li>
-      </ul>
-      <div class="subsection">8. Avoid Common Mistakes</div>
-      <div class="tip">❌ Missing deadlines (set reminders!).<br>❌ Incomplete applications.<br>❌ Generic motivation letters.<br>❌ Ignoring small bursaries (R5,000 can cover textbooks!).</div>
-      <div class="final-tip">🚀 By focusing on grades, applying strategically, and presenting yourself professionally, you’ll maximize your chances of securing funding.<br>Need help finding bursaries? Let me know your field of study, and I’ll suggest options!</div>
-    </div>
-  </div>
-
-  <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
+  <footer>
     &copy; 2025 YouthConnect SA<br>
     <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
     &nbsp;|&nbsp;
