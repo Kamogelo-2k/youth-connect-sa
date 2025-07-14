@@ -16,18 +16,23 @@
     header {
       background: #111;
       color: white;
-      padding: 10px;
+      padding: 10px 24px;
       position: sticky;
       top: 0;
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      min-width: 0;
+      box-sizing: border-box;
     }
     header .logo {
       font-weight: bold;
       font-size: 1.2rem;
       color: white;
+      flex-shrink: 0;
+      min-width: 0;
     }
     nav.menu {
       display: flex;
@@ -192,8 +197,19 @@
     }
 
     @media (max-width: 600px) {
-      body.menu-open #main-content {
-        margin-right: 200px;
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 8px;
+      }
+      header .logo {
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+        text-align: left;
+      }
+      .menu-toggle {
+        align-self: flex-end;
+        margin-bottom: 4px;
       }
       nav.menu {
         right: 0;
@@ -203,9 +219,11 @@
         width: 100vw;
         border-radius: 0 0 12px 12px;
       }
-      .menu-toggle {
-        width: 40px;
-        height: 40px;
+      body.menu-open #main-content {
+        margin-right: 0;
+      }
+      section {
+        padding: 1rem;
       }
     }
 
@@ -219,6 +237,20 @@
       margin-top: 2rem;
       box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
       border-top: 2px solid #0066cc;
+      width: 100vw;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+    .site-footer a {
+      color: #fff;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    @media (max-width: 600px) {
+      .site-footer {
+        font-size: 0.92rem;
+        padding: 0.7rem 0;
+      }
     }
 
     .about-block {
@@ -487,12 +519,10 @@
     });
   </script>
   <footer class="site-footer">
-    <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
-      &copy; 2025 YouthConnect SA<br>
-      <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com" style="color:#fff; text-decoration:underline;">kamogelomokgata@gmail.com</a>
-      &nbsp;|&nbsp;
-      <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
-    </footer>
+    &copy; 2025 YouthConnect SA<br>
+    <span style="font-size:1.1em;">📧</span> <a href="mailto:kamogelomokgata@gmail.com">kamogelomokgata@gmail.com</a>
+    &nbsp;|&nbsp;
+    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792">076 546 6792</a>
   </footer>
 </body>
 </html>
