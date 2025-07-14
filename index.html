@@ -1,9 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Favicon and manifest links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <title>YouthConnect SA</title>
   <style>
     body {
@@ -245,6 +249,55 @@
       line-height: 1.7;
       margin-bottom: 0;
     }
+
+    /* Search Bar */
+    .search-bar {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 18px 0;
+      position: relative;
+    }
+    .search-bar input {
+      padding: 8px 14px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+      outline: none;
+      width: 260px;
+      max-width: 80%;
+    }
+    .search-bar button {
+      padding: 8px 18px;
+      font-size: 1rem;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+    #search-suggestions {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 0 0 6px 6px;
+      z-index: 10;
+      max-width: 340px;
+      margin: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      display: none;
+    }
+    .suggestion-item {
+      padding: 8px 14px;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+    .suggestion-item:hover {
+      background: #f0f0f0;
+    }
   </style>
 </head>
 <body>
@@ -269,9 +322,16 @@
       <a href="NSFAS.html">NSFAS</a>
       <a href="postgraduate bursaries.html">Postgraduate</a>
       <a href="science bursaries.html">Science</a>
-      <a href="Tips.html">Tips</a>  
+      <a href="Tips.html">Science</a>
     </nav>
   </header>
+
+  <!-- Search Bar -->
+  <div class="search-bar" style="position:relative;">
+    <input type="text" id="search-input" placeholder="Search..." autocomplete="off" />
+    <button id="search-btn">Clear</button>
+    <div id="search-suggestions" style="position:absolute; top:40px; left:0; right:0; background:#fff; border:1px solid #ccc; border-radius:0 0 6px 6px; z-index:10; max-width:340px; margin:auto; box-shadow:0 2px 8px rgba(0,0,0,0.07); display:none;"></div>
+  </div>
 
   <div id="main-content">
     <!-- Main Sections -->
@@ -476,16 +536,83 @@
         menuToggle.addEventListener('click', function(e) {
           e.stopPropagation();
           menu.classList.toggle('active');
-          menuToggle.classList.toggle('active'); // Toggle active on button
+          menuToggle.classList.toggle('active');
         });
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
           if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== menuToggle) {
             menu.classList.remove('active');
-            menuToggle.classList.remove('active'); // Remove active from button
+            menuToggle.classList.remove('active');
           }
         });
       }
+
+      // University search functionality + suggestions
+      var searchInput = document.getElementById('search-input');
+      var searchBtn = document.getElementById('search-btn');
+      var universityBlocks = document.querySelectorAll('.university-block');
+      var suggestionsBox = document.getElementById('search-suggestions');
+
+      function filterUniversities() {
+        var query = searchInput.value.trim().toLowerCase();
+        universityBlocks.forEach(function(block) {
+          var name = block.querySelector('h3').textContent.toLowerCase();
+          block.style.display = name.includes(query) ? '' : 'none';
+        });
+        suggestionsBox.style.display = 'none';
+      }
+
+      function showSuggestions() {
+        var query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+          suggestionsBox.style.display = 'none';
+          return;
+        }
+        var matches = [];
+        universityBlocks.forEach(function(block) {
+          var name = block.querySelector('h3').textContent;
+          if (name.toLowerCase().includes(query)) {
+            matches.push(name);
+          }
+        });
+        if (matches.length === 0) {
+          suggestionsBox.style.display = 'none';
+          return;
+        }
+        suggestionsBox.innerHTML = matches.slice(0,3).map(function(name) {
+          return '<div style="padding:8px 14px; cursor:pointer; border-bottom:1px solid #eee;" class="suggestion-item">' + name + '</div>';
+        }).join('');
+        suggestionsBox.style.display = 'block';
+
+        // Add click event for each suggestion
+        Array.from(suggestionsBox.children).forEach(function(item, idx) {
+          item.onclick = function() {
+            searchInput.value = matches[idx];
+            filterUniversities();
+            suggestionsBox.style.display = 'none';
+          };
+        });
+      }
+
+      // Change button to clear search
+      searchBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        universityBlocks.forEach(function(block) {
+          block.style.display = '';
+        });
+        suggestionsBox.style.display = 'none';
+        searchInput.focus();
+      });
+
+      searchInput.addEventListener('keyup', function(e) {
+        showSuggestions();
+        if (e.key === 'Enter') filterUniversities();
+      });
+      searchInput.addEventListener('focus', showSuggestions);
+      document.addEventListener('click', function(e) {
+        if (!suggestionsBox.contains(e.target) && e.target !== searchInput) {
+          suggestionsBox.style.display = 'none';
+        }
+      });
     });
   </script>
   <footer class="site-footer">
