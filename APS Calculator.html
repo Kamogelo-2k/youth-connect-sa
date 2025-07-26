@@ -1,0 +1,192 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arts Bursaries – YouthConnect SA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 0.5rem 0 0.5rem 0;
+      padding: 4px 10px;
+      font-size: 0.95rem;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      transition: background 0.2s, color 0.2s;
+      position: relative;
+      top: 0;
+    }
+    .back-btn:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    /* APS Calculator styles */
+    #apsCalculator {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    #apsCalculator h2 {
+      color: #0066cc;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    #apsCalculator label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    #apsCalculator input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-top: 4px;
+    }
+
+    #apsCalculator button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 10px;
+      font-size: 1.1rem;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #apsCalculator button:hover {
+      background: #004a99;
+    }
+
+    #apsResult {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #006600;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .site-footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.2rem 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-top: 2rem;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.07);
+      border-top: 2px solid #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">YouthConnect SA</div>
+  </header>
+  <div style="width:100%;display:flex;justify-content:flex-start;">
+    <!-- Back button removed -->
+  </div>
+
+  <!-- Removed bursary cards -->
+
+  <!-- APS Calculator -->
+  <div id="apsCalculator" class="container">
+    <h2>APS Calculator</h2>
+    <p>Enter your APS points (1 to 7) for each subject below:</p>
+    <form id="apsForm" onsubmit="return calculateAPS(event)">
+      <label for="subject1">Subject 1</label>
+      <input type="number" id="subject1" name="subject1" min="1" max="7" required />
+      
+      <label for="subject2">Subject 2</label>
+      <input type="number" id="subject2" name="subject2" min="1" max="7" required />
+      
+      <label for="subject3">Subject 3</label>
+      <input type="number" id="subject3" name="subject3" min="1" max="7" required />
+      
+      <label for="subject4">Subject 4</label>
+      <input type="number" id="subject4" name="subject4" min="1" max="7" required />
+      
+      <label for="subject5">Subject 5</label>
+      <input type="number" id="subject5" name="subject5" min="1" max="7" required />
+      
+      <label for="subject6">Subject 6</label>
+      <input type="number" id="subject6" name="subject6" min="1" max="7" required />
+      
+      <button type="submit">Calculate Total APS</button>
+    </form>
+    <div id="apsResult"></div>
+  </div>
+
+  <footer class="site-footer">
+    &copy; 2025 YouthConnect SA<br>
+    <span style="font-size:1.1em;">📧</span> <a href="mailto:youthconnectsa@hotmail.com" style="color:#fff; text-decoration:underline;">youthconnectsa@hotmail.com</a>
+    &nbsp;|&nbsp;
+    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
+  </footer>
+
+  <script>
+    function calculateAPS(event) {
+      event.preventDefault();
+      const resultDiv = document.getElementById('apsResult');
+      resultDiv.textContent = '';
+      
+      let total = 0;
+      for(let i = 1; i <= 7; i++) {
+        const input = document.getElementById('subject' + i);
+        const val = Number(input.value);
+        if(isNaN(val) || val < 1 || val > 7) {
+          resultDiv.textContent = 'Please enter valid APS points between 1 and 7 for all subjects.';
+          resultDiv.className = 'error';
+          return false;
+        }
+        total += val;
+      }
+      resultDiv.textContent = `Your total APS score is: ${total}`;
+      resultDiv.className = '';
+      return true;
+    }
+  </script>
+</body>
+</html>
