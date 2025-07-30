@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Site Under Maintenance – YouthConnect SA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1.2rem 2rem;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .maintenance-box {
+      background: #fff;
+      border: 2px solid #0066cc;
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      max-width: 600px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .maintenance-box h1 {
+      font-size: 2.5rem;
+      color: #0066cc;
+      margin-bottom: 1rem;
+    }
+
+    .maintenance-box p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin: 0.5rem;
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    YouthConnect SA
+  </header>
+
+  <div class="container">
+    <div class="maintenance-box">
+      <h1>🚧 Under Maintenance</h1>
+      <p>We're currently making some updates to improve your experience.</p>
+      <p>Please check back soon. We appreciate your patience!</p>
+      <div class="contact-links">
+        <a href="mailto:youthconnectsa@hotmail.com">📧 Email Us</a> |
+        <a href="https://wa.me/2765466792">📱 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+ <footer style="background:#000; color:#fff; text-align:center; padding:1rem 0; font-size:1rem; margin-top:2rem;">
+    &copy; 2025 YouthConnect SA<br>
+    <span style="font-size:1.1em;">📧</span> <a href="mailto:youthconnectsa@hotmail.com" style="color:#fff; text-decoration:underline;">youthconnectsa@hotmail.com</a>
+    &nbsp;|&nbsp;
+    <span style="font-size:1.1em;">🟢</span> <a href="https://wa.me/2765466792" style="color:#fff; text-decoration:underline;">076 546 6792</a>
+  </footer>
+</body>
+</html>
