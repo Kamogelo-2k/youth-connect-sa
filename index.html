@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -310,7 +311,6 @@
       <span class="bar"></span>
     </button>
     <nav class="menu">
-      <a href="colleges.html">college application</a>
       <a href="Accounting bursaries.html">Accounting Bursaries</a>
       <a href="Arts bursaries.html">Arts Bursaries</a>
       <a href="commerce bursaries.html">Commerce Bursaries</a>
@@ -325,7 +325,6 @@
       <a href="postgraduate bursaries.html">Postgraduate Bursaries</a>
       <a href="science bursaries.html">Science Bursaries</a>
       <a href="Tips.html">Tips</a>
-      <a href="apply for jobs.html">Job applications</a>
     </nav>
   </header>
 
@@ -338,6 +337,12 @@
   
   <div id="main-content">
     <!-- Main Sections -->
+    <div style="text-align: center; margin: 2rem 0;">
+      <button id="bursary-btn" style="padding: 8px 16px; background: #000; color: #fff; border: 2px solid #000; border-radius: 4px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.2s; margin: 0 8px;" onmouseover="this.style.background='#fff'; this.style.color='#000'" onmouseout="this.style.background='#000'; this.style.color='#fff'"> Bursaries</button>
+      <button id="college-btn" style="padding: 8px 16px; background: #000; color: #fff; border: 2px solid #000; border-radius: 4px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.2s; margin: 0 8px;" onmouseover="this.style.background='#fff'; this.style.color='#000'" onmouseout="this.style.background='#000'; this.style.color='#fff'"> Colleges</button>
+      <button id="jobs-btn" style="padding: 8px 16px; background: #000; color: #fff; border: 2px solid #000; border-radius: 4px; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.2s; margin: 0 8px;" onmouseover="this.style.background='#fff'; this.style.color='#000'" onmouseout="this.style.background='#000'; this.style.color='#fff'"> Jobs</button>
+    </div>
+    
     <section id="universities">
       <h2>🎓 Universities</h2>
       <!-- University blocks generated from tableConvert.com_hf4k3g.json -->
@@ -574,6 +579,57 @@
           }
         });
       }
+
+      // Button functionality for bursaries, colleges, and jobs
+      var bursaryBtn = document.getElementById('bursary-btn');
+      var collegeBtn = document.getElementById('college-btn');
+      var jobsBtn = document.getElementById('jobs-btn');
+      
+      function addButtonClickHandler(button) {
+        if (button) {
+          button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            menu.classList.add('active');
+            menuToggle.classList.add('active');
+            // Add visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              this.style.transform = 'scale(1)';
+            }, 150);
+          });
+        }
+      }
+      
+             // College button opens colleges.html
+       if (collegeBtn) {
+         collegeBtn.addEventListener('click', function(e) {
+           e.preventDefault();
+           e.stopPropagation();
+           // Add visual feedback
+           this.style.transform = 'scale(0.95)';
+           setTimeout(() => {
+             this.style.transform = 'scale(1)';
+             window.open('colleges.html', '_blank');
+           }, 150);
+         });
+       }
+       
+       // Jobs button opens apply for jobs.html
+       if (jobsBtn) {
+         jobsBtn.addEventListener('click', function(e) {
+           e.preventDefault();
+           e.stopPropagation();
+           // Add visual feedback
+           this.style.transform = 'scale(0.95)';
+           setTimeout(() => {
+             this.style.transform = 'scale(1)';
+             window.open('apply for jobs.html', '_blank');
+           }, 150);
+         });
+       }
+       
+       addButtonClickHandler(bursaryBtn);
 
       // University search functionality + suggestions
       var searchInput = document.getElementById('search-input');
