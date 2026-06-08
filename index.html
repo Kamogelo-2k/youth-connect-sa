@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3132176569004369"
@@ -12,10 +12,6 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="youthconnect.css">
   <title>YouthConnect SA – Universities, Bursaries & Colleges</title>
-  <style>
-    body.page-home { overflow-x: hidden; }
-    .page-home nav.menu { z-index: 2000; }
-  </style>
 </head>
 <body class="page-home">
 
@@ -38,8 +34,11 @@
       <a href="NSFAS.html">NSFAS</a>
       <a href="postgraduate bursaries.html">Postgraduate Bursaries</a>
       <a href="science bursaries.html">Science Bursaries</a>
+      <a href="colleges.html">Colleges</a>
+      <a href="apply for jobs.html">Jobs</a>
       <a href="Tips.html">Tips</a>
       <a href="info.html">Bursary Info</a>
+      <a href="APS Calculator.html">APS Calculator</a>
     </nav>
   </header>
 
@@ -50,7 +49,7 @@
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Search universities..." autocomplete="off" />
         <button type="button" id="search-btn">Clear</button>
-        <div id="search-suggestions" style="display:none;"></div>
+        <div id="search-suggestions"></div>
       </div>
       <div class="hero-actions">
         <button type="button" id="bursary-btn" class="nav-pill">Bursaries</button>
@@ -275,7 +274,7 @@
     </section>
     
     <section id="about" class="about-block">
-      <h2>About</h2>
+      <h2>📘 About</h2>
       <p>YouthConnect SA is a simple platform that connects young South Africans with official opportunities like college, university, and bursaries applications for the <strong>2026/2027 academic year</strong>. We aim to centralize access so that youth don't have to search across dozens of websites.</p>
     </section>
   </div>
@@ -284,19 +283,6 @@
     document.addEventListener('DOMContentLoaded', function() {
       var menuToggle = document.querySelector('.menu-toggle');
       var menu = document.querySelector('nav.menu');
-      if (menuToggle && menu) {
-        menuToggle.addEventListener('click', function(e) {
-          e.stopPropagation();
-          menu.classList.toggle('active');
-          menuToggle.classList.toggle('active');
-        });
-        document.addEventListener('click', function(e) {
-          if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== menuToggle) {
-            menu.classList.remove('active');
-            menuToggle.classList.remove('active');
-          }
-        });
-      }
 
       // Button functionality for bursaries, colleges, and jobs
       var bursaryBtn = document.getElementById('bursary-btn');
@@ -349,10 +335,233 @@
        
        addButtonClickHandler(bursaryBtn);
 
+      // Premium university cards: campus backgrounds + logos
+      var uniAssets = {
+        'University of Cape Town (UCT)': {
+          bg: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/7/7c/University_of_Cape_Town_logo.svg',
+          domain: 'uct.ac.za',
+          abbr: 'UCT'
+        },
+        'University of the Witwatersrand (Wits)': {
+          bg: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/4/4e/Wits_University_logo.svg',
+          domain: 'wits.ac.za',
+          abbr: 'Wits'
+        },
+        'Stellenbosch University (SU)': {
+          bg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/af/4/4e/Stellenbosch_University_logo.svg',
+          domain: 'sun.ac.za',
+          abbr: 'SU'
+        },
+        'University of Pretoria (UP)': {
+          bg: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/5/5a/University_of_Pretoria_logo.svg',
+          domain: 'up.ac.za',
+          abbr: 'UP'
+        },
+        'University of KwaZulu-Natal (UKZN)': {
+          bg: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/8/8e/University_of_KwaZulu-Natal_logo.svg',
+          domain: 'ukzn.ac.za',
+          abbr: 'UKZN'
+        },
+        'University of Johannesburg (UJ)': {
+          bg: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/2/2e/University_of_Johannesburg_logo.svg',
+          domain: 'uj.ac.za',
+          abbr: 'UJ'
+        },
+        'University of the Western Cape (UWC)': {
+          bg: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/9/9e/University_of_the_Western_Cape_logo.svg',
+          domain: 'uwc.ac.za',
+          abbr: 'UWC'
+        },
+        'University of the Free State (UFS)': {
+          bg: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/1/1e/University_of_the_Free_State_logo.svg',
+          domain: 'ufs.ac.za',
+          abbr: 'UFS'
+        },
+        'North-West University (NWU)': {
+          bg: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/North-West_University_logo.svg/200px-North-West_University_logo.svg.png',
+          domain: 'nwu.ac.za',
+          abbr: 'NWU'
+        },
+        'Rhodes University': {
+          bg: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/3/3e/Rhodes_University_logo.svg',
+          domain: 'ru.ac.za',
+          abbr: 'RU'
+        },
+        'University of Limpopo': {
+          bg: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/8/8a/University_of_Limpopo_logo.svg',
+          domain: 'ul.ac.za',
+          abbr: 'UL'
+        },
+        'University of Venda (Univen)': {
+          bg: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/4/4a/University_of_Venda_logo.svg',
+          domain: 'univen.ac.za',
+          abbr: 'Univen'
+        },
+        'University of Zululand (UniZulu)': {
+          bg: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/9/9a/University_of_Zululand_logo.svg',
+          domain: 'unizulu.ac.za',
+          abbr: 'UniZulu'
+        },
+        'University of Fort Hare (UFH)': {
+          bg: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/6/6e/University_of_Fort_Hare_logo.svg',
+          domain: 'ufh.ac.za',
+          abbr: 'UFH'
+        },
+        'Walter Sisulu University (WSU)': {
+          bg: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/5/5e/Walter_Sisulu_University_logo.svg',
+          domain: 'wsu.ac.za',
+          abbr: 'WSU'
+        },
+        'Nelson Mandela University': {
+          bg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/NMU_logo.png/320px-NMU_logo.png',
+          domain: 'mandela.ac.za',
+          abbr: 'NMU'
+        },
+        'University of South Africa (UNISA)': {
+          bg: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/University_of_south_africa_logo.jpg/320px-University_of_south_africa_logo.jpg',
+          domain: 'unisa.ac.za',
+          abbr: 'UNISA'
+        },
+        'University of Mpumalanga (UMP)': {
+          bg: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/2/2a/University_of_Mpumalanga_logo.svg',
+          domain: 'ump.ac.za',
+          abbr: 'UMP'
+        },
+        'Sol Plaatje University (SPU)': {
+          bg: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/1/1a/Sol_Plaatje_University_logo.svg',
+          domain: 'spu.ac.za',
+          abbr: 'SPU'
+        },
+        'Tshwane University of Technology (TUT)': {
+          bg: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/7/7a/Tshwane_University_of_Technology_logo.svg',
+          domain: 'tut.ac.za',
+          abbr: 'TUT'
+        },
+        'Cape Peninsula University of Technology (CPUT)': {
+          bg: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/3/3c/Cape_Peninsula_University_of_Technology_logo.svg',
+          domain: 'cput.ac.za',
+          abbr: 'CPUT'
+        },
+        'Durban University of Technology (DUT)': {
+          bg: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/The_Durban_University_of_Technology_new_log.jpg/320px-The_Durban_University_of_Technology_new_log.jpg',
+          domain: 'dut.ac.za',
+          abbr: 'DUT'
+        },
+        'Vaal University of Technology (VUT)': {
+          bg: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/VUT_logo-TM.png/320px-VUT_logo-TM.png',
+          domain: 'vut.ac.za',
+          abbr: 'VUT'
+        },
+        'Mangosuthu University of Technology (MUT)': {
+          bg: 'https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/8/8d/Mangosuthu_University_of_Technology_logo.svg',
+          domain: 'mut.ac.za',
+          abbr: 'MUT'
+        },
+        'Central University of Technology (CUT)': {
+          bg: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/4/4c/Central_University_of_Technology_logo.svg',
+          domain: 'cut.ac.za',
+          abbr: 'CUT'
+        },
+        'Sefako Makgatho Health Sciences University': {
+          bg: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
+          logo: 'https://upload.wikimedia.org/wikipedia/en/9/9c/Sefako_Makgatho_Health_Sciences_University_logo.svg',
+          domain: 'smu.ac.za',
+          abbr: 'SMU'
+        }
+      };
+
+      function createLogoFallback(abbr) {
+        var span = document.createElement('span');
+        span.className = 'university-logo university-logo--fallback';
+        span.textContent = abbr;
+        span.setAttribute('aria-hidden', 'true');
+        return span;
+      }
+
+      function enhanceUniversityBlocks(blocks) {
+        blocks.forEach(function(block) {
+          if (block.querySelector('.university-block__inner')) return;
+
+          var h3 = block.querySelector('h3');
+          if (!h3) return;
+
+          var name = h3.textContent.trim();
+          var assets = uniAssets[name] || {
+            bg: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=900&q=80',
+            logo: '',
+            abbr: name.replace(/[^A-Z]/g, '').slice(0, 4) || 'UNI'
+          };
+
+          block.style.setProperty('--uni-bg', 'url("' + assets.bg + '")');
+
+          var inner = document.createElement('div');
+          inner.className = 'university-block__inner';
+
+          var header = document.createElement('div');
+          header.className = 'university-block__header';
+
+          if (assets.logo) {
+            var img = document.createElement('img');
+            img.className = 'university-logo';
+            img.src = assets.logo;
+            img.alt = name + ' logo';
+            img.loading = 'lazy';
+            img.width = 58;
+            img.height = 58;
+            img.onerror = function() {
+              if (assets.domain && !img.dataset.retried) {
+                img.dataset.retried = '1';
+                img.src = 'https://www.google.com/s2/favicons?domain=' + assets.domain + '&sz=128';
+                return;
+              }
+              img.replaceWith(createLogoFallback(assets.abbr));
+            };
+            header.appendChild(img);
+          } else {
+            header.appendChild(createLogoFallback(assets.abbr));
+          }
+
+          header.appendChild(h3);
+          inner.appendChild(header);
+
+          while (block.firstChild) {
+            inner.appendChild(block.firstChild);
+          }
+
+          block.appendChild(inner);
+        });
+      }
+
       // University search functionality + suggestions
       var searchInput = document.getElementById('search-input');
       var searchBtn = document.getElementById('search-btn');
       var universityBlocks = document.querySelectorAll('.university-block');
+      enhanceUniversityBlocks(universityBlocks);
       var suggestionsBox = document.getElementById('search-suggestions');
 
       function filterUniversities() {
@@ -425,6 +634,7 @@
     &nbsp;|&nbsp;
     <a href="https://wa.me/2765466792">076 546 6792 (WhatsApp)</a>
   </footer>
+  <script src="youthconnect.js"></script>
 </body>
 </html>
 
