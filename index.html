@@ -34,11 +34,8 @@
       <a href="NSFAS.html">NSFAS</a>
       <a href="postgraduate bursaries.html">Postgraduate Bursaries</a>
       <a href="science bursaries.html">Science Bursaries</a>
-      <a href="colleges.html">Colleges</a>
-      <a href="apply for jobs.html">Jobs</a>
       <a href="Tips.html">Tips</a>
       <a href="info.html">Bursary Info</a>
-      <a href="APS Calculator.html">APS Calculator</a>
     </nav>
   </header>
 
@@ -49,7 +46,7 @@
       <div class="search-bar">
         <input type="text" id="search-input" placeholder="Search universities..." autocomplete="off" />
         <button type="button" id="search-btn">Clear</button>
-        <div id="search-suggestions"></div>
+        <div id="search-suggestions" style="display:none;"></div>
       </div>
       <div class="hero-actions">
         <button type="button" id="bursary-btn" class="nav-pill">Bursaries</button>
@@ -69,6 +66,7 @@
         <p><strong>Application Dates:</strong> 1 Apr – 31 Jul 2026</p>
         <p><strong>Application Fee:</strong> R100 / R300</p>
         <a href="https://www.uct.ac.za" target="_blank" class="apply-btn">Apply</a>
+        <a href="https://www.uct.ac.za/study/prospectus" target="_blank" class="apply-btn apply-btn--secondary">Download Prospectus</a>
         <a href="APS Calculator.html" target="_blank" class="apply-btn apply-btn--outline">APS Calculator</a>
       </div>
       <div class="university-block">
@@ -77,6 +75,7 @@
         <p><strong>Application Dates:</strong> Open – 30 Sep 2026</p>
         <p><strong>Application Fee:</strong> R100 / R700</p>
         <a href="https://www.wits.ac.za" target="_blank" class="apply-btn">Apply</a>
+        <a href="https://www.wits.ac.za/study/prospectus" target="_blank" class="apply-btn apply-btn--secondary">Download Prospectus</a>
         <a href="APS Calculator.html" target="_blank" class="apply-btn apply-btn--outline">APS Calculator</a>
       </div>
       <div class="university-block">
@@ -283,6 +282,19 @@
     document.addEventListener('DOMContentLoaded', function() {
       var menuToggle = document.querySelector('.menu-toggle');
       var menu = document.querySelector('nav.menu');
+      if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          menu.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+          if (menu.classList.contains('active') && !menu.contains(e.target) && e.target !== menuToggle) {
+            menu.classList.remove('active');
+            menuToggle.classList.remove('active');
+          }
+        });
+      }
 
       // Button functionality for bursaries, colleges, and jobs
       var bursaryBtn = document.getElementById('bursary-btn');
@@ -557,11 +569,34 @@
         });
       }
 
+      function addProspectusButtons(blocks) {
+        blocks.forEach(function(block) {
+          if (block.querySelector('.apply-btn--secondary')) return;
+          var h3 = block.querySelector('h3');
+          if (!h3) return;
+          var name = h3.textContent.trim();
+          var assets = uniAssets[name] || {};
+          var query = assets.domain ? 'site:' + assets.domain + ' prospectus pdf' : name + ' prospectus pdf';
+          var url = 'https://www.google.com/search?q=' + encodeURIComponent(query);
+
+          var button = document.createElement('a');
+          button.href = url;
+          button.target = '_blank';
+          button.rel = 'noopener noreferrer';
+          button.className = 'apply-btn apply-btn--secondary';
+          button.textContent = 'Download Prospectus';
+
+          var container = block.querySelector('.university-block__inner') || block;
+          container.appendChild(button);
+        });
+      }
+
       // University search functionality + suggestions
       var searchInput = document.getElementById('search-input');
       var searchBtn = document.getElementById('search-btn');
       var universityBlocks = document.querySelectorAll('.university-block');
       enhanceUniversityBlocks(universityBlocks);
+      addProspectusButtons(universityBlocks);
       var suggestionsBox = document.getElementById('search-suggestions');
 
       function filterUniversities() {
@@ -637,4 +672,5 @@
   <script src="youthconnect.js"></script>
 </body>
 </html>
+
 
